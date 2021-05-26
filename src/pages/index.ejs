@@ -1,0 +1,50 @@
+<link href="style.css" rel="stylesheet" type="text/css">
+<body class="bg">
+<div class="margin"></div>    
+
+<h1>Ladies Disc Club</h1>
+
+<a href="/create" class="newdisc">New Disc</a>
+
+<div class="margin"></div>  
+
+<form action="/" method="get" class="search">
+    <input class="search" type="text" name="search" placeholder="Disc search">
+    <input type="submit" hidden>
+</form>
+
+<table>
+        <tr>
+            <td class="name-column">
+                Disc
+            </td>
+            <td class="name-column">
+                Author
+            </td>
+        </tr>
+    <% for (var i=0; i < discs.length; i++) { 
+        var disc = discs[i] %>
+        <tr>
+            <td class="name-column2">
+                <%= disc.name %>
+            </td>
+            <td>
+                <%= disc.author %>
+            </td>
+            <td class="btnborder">
+                <form action="/update" method="get">
+                    <input type="hidden" name="disc" value="<%= (JSON.stringify(disc)) %>">
+                    <input type="submit" value="Edit">
+                </form>
+            </td>
+            <td class="btnborder">
+                <form action="/discs/delete" onSubmit="return confirm('Confirm deletion?')" 
+                    method="post">
+                    <input type="hidden" name="disc" value="<%= (JSON.stringify(disc)) %>">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+        <% } %>
+</table>
+</body>

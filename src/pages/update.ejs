@@ -1,0 +1,17 @@
+<link href="style.css" rel="stylesheet" type="text/css">
+<body class="bg">
+<div class="top">
+    <h1>Ladies Disc Club</h1>
+</div>  
+
+<form action="/discs/update" method="post">
+    <input type="hidden" name="id" value="<%= disc.id %>">
+    <input type="text" placeholder="Disc" name="name" value="<%= disc.name %>" required> <br>
+    <input type="text" placeholder="Author" name="author" value="<%= disc.author %>" required> <br><br>
+    <input type="submit" value="Update">
+</form>
+
+<div class="margin"></div>  
+
+<a href="/">Home</a>
+</body>
